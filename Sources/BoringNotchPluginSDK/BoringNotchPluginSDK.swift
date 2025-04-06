@@ -23,18 +23,18 @@ public protocol MediaControllerProtocol: ObservableObject {
 
 //Playback state model
 public struct PlaybackState {
-    var bundleIdentifier: String
-    var isPlaying: Bool = false
-    var title: String = "I'm Handsome"
-    var artist: String = "Me"
-    var album: String = "Self Love"
-    var currentTime: Double = 0
-    var duration: Double = 0
-    var playbackRate: Double = 1
-    var isShuffled: Bool = false
-    var isRepeating: Bool = false
-    var lastUpdated: Date = Date.distantPast
-    var artwork: Data?
+    public var bundleIdentifier: String
+    public var isPlaying: Bool = false
+    public var title: String = "I'm Handsome"
+    public var artist: String = "Me"
+    public var album: String = "Self Love"
+    public var currentTime: Double = 0
+    public var duration: Double = 0
+    public var playbackRate: Double = 1
+    public var isShuffled: Bool = false
+    public var isRepeating: Bool = false
+    public var lastUpdated: Date = Date.distantPast
+    public var artwork: Data?
 }
 
 // Plugin definition protocol
