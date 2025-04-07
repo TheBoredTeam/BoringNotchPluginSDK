@@ -35,6 +35,21 @@ public struct PlaybackState {
     public var isRepeating: Bool = false
     public var lastUpdated: Date = Date.distantPast
     public var artwork: Data?
+    
+    public init(bundleIdentifier: String, isPlaying: Bool = false, title: String = "I'm Handsome", artist: String = "Me", album: String = "Self Love", currentTime: Double = 0, duration: Double = 0, playbackRate: Double = 1, isShuffled: Bool = false, isRepeating: Bool = false, lastUpdated: Date = Date.distantPast, artwork: Data? = nil) {
+        self.bundleIdentifier = bundleIdentifier
+        self.isPlaying = isPlaying
+        self.title = title
+        self.artist = artist
+        self.album = album
+        self.currentTime = currentTime
+        self.duration = duration
+        self.playbackRate = playbackRate
+        self.isShuffled = isShuffled
+        self.isRepeating = isRepeating
+        self.lastUpdated = lastUpdated
+        self.artwork = artwork
+    }
 }
 
 // Plugin definition protocol
