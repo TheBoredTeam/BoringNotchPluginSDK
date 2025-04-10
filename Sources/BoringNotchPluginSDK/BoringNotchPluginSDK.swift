@@ -24,16 +24,16 @@ public protocol MediaControllerProtocol: ObservableObject {
 //Playback state model
 public struct PlaybackState {
     public var bundleIdentifier: String
-    public var isPlaying: Bool = false
-    public var title: String = "I'm Handsome"
-    public var artist: String = "Me"
-    public var album: String = "Self Love"
-    public var currentTime: Double = 0
-    public var duration: Double = 0
-    public var playbackRate: Double = 1
-    public var isShuffled: Bool = false
-    public var isRepeating: Bool = false
-    public var lastUpdated: Date = Date.distantPast
+    public var isPlaying: Bool
+    public var title: String
+    public var artist: String
+    public var album: String
+    public var currentTime: Double
+    public var duration: Double
+    public var playbackRate: Double
+    public var isShuffled: Bool
+    public var isRepeating: Bool
+    public var lastUpdated: Date
     public var artwork: Data?
     
     public init(bundleIdentifier: String, isPlaying: Bool = false, title: String = "I'm Handsome", artist: String = "Me", album: String = "Self Love", currentTime: Double = 0, duration: Double = 0, playbackRate: Double = 1, isShuffled: Bool = false, isRepeating: Bool = false, lastUpdated: Date = Date.distantPast, artwork: Data? = nil) {
@@ -81,3 +81,11 @@ public struct PluginMetadata: Codable, Identifiable, Equatable {
     }
 }
 
+open class PluginFactory {
+    
+    public init() {}
+
+    open func createMediaControllerPlugin() -> MediaControllerPlugin {
+        fatalError("You have to override this method.")
+    }
+}
