@@ -31,7 +31,7 @@ public protocol MediaControllerProtocol {
     func togglePlay()
     func isActive() -> Bool
     func updatePlaybackInfo()
-    func reset()
+    mutating func reset()
 }
 
 // Extension to provide default values and a method to reset to default values
