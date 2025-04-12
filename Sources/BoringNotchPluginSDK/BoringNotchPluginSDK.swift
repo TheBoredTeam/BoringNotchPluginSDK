@@ -31,36 +31,7 @@ public protocol MediaControllerProtocol {
     func togglePlay()
     func isActive() -> Bool
     func updatePlaybackInfo()
-    mutating func reset()
-}
-
-// Extension to provide default values and a method to reset to default values
-public extension MediaControllerProtocol {
-    var isPlaying: Bool { return false }
-    var title: String { return "I'm Handsome" }
-    var artist: String { return "Me" }
-    var album: String { return "Self Love" }
-    var currentTime: Double { return 0 }
-    var duration: Double { return 0 }
-    var playbackRate: Double { return 1 }
-    var isShuffled: Bool { return false }
-    var isRepeating: Bool { return false }
-    var lastUpdated: Date { return Date.distantPast }
-    var artwork: Data? { return nil }
     
-    mutating func reset() {
-        isPlaying = false
-        title = "I'm Handsome"
-        artist = "Me"
-        album = "Self Love"
-        currentTime = 0
-        duration = 0
-        playbackRate = 1
-        isShuffled = false
-        isRepeating = false
-        lastUpdated = Date.distantPast
-        artwork = nil
-    }
 }
 
 
