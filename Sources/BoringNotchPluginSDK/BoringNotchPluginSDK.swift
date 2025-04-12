@@ -10,7 +10,19 @@ import Combine
 
 // Core media controller protocol
 public protocol MediaControllerProtocol {
-    var playbackState: PlaybackState { get }
+    var bundleIdentifier: String { get }
+    var isPlaying: Bool { get }
+    var title: String { get }
+    var artist: String { get }
+    var album: String { get }
+    var currentTime: Double { get }
+    var duration: Double { get }
+    var playbackRate: Double { get }
+    var isShuffled: Bool { get }
+    var isRepeating: Bool { get }
+    var lastUpdated: Date { get }
+    var artwork: Data? { get }
+    
     func play()
     func pause()
     func seek(to time: Double)
@@ -19,37 +31,6 @@ public protocol MediaControllerProtocol {
     func togglePlay()
     func isActive() -> Bool
     func updatePlaybackInfo()
-}
-
-//Playback state model
-public struct PlaybackState {
-    public var bundleIdentifier: String
-    public var isPlaying: Bool
-    public var title: String
-    public var artist: String
-    public var album: String
-    public var currentTime: Double
-    public var duration: Double
-    public var playbackRate: Double
-    public var isShuffled: Bool
-    public var isRepeating: Bool
-    public var lastUpdated: Date
-    public var artwork: Data?
-    
-    public init(bundleIdentifier: String, isPlaying: Bool = false, title: String = "I'm Handsome", artist: String = "Me", album: String = "Self Love", currentTime: Double = 0, duration: Double = 0, playbackRate: Double = 1, isShuffled: Bool = false, isRepeating: Bool = false, lastUpdated: Date = Date.distantPast, artwork: Data? = nil) {
-        self.bundleIdentifier = bundleIdentifier
-        self.isPlaying = isPlaying
-        self.title = title
-        self.artist = artist
-        self.album = album
-        self.currentTime = currentTime
-        self.duration = duration
-        self.playbackRate = playbackRate
-        self.isShuffled = isShuffled
-        self.isRepeating = isRepeating
-        self.lastUpdated = lastUpdated
-        self.artwork = artwork
-    }
 }
 
 // Plugin definition protocol
