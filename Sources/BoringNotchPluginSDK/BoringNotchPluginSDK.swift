@@ -9,8 +9,8 @@ import Foundation
 import Combine
 
 // Core media controller protocol
-public protocol MediaControllerProtocol: ObservableObject {
-    var playbackStatePublisher: Published<PlaybackState>.Publisher { get }
+public protocol MediaControllerProtocol {
+    var playbackState: PlaybackState { get }
     func play()
     func pause()
     func seek(to time: Double)
