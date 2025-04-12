@@ -11,17 +11,17 @@ import Combine
 // Core media controller protocol
 public protocol MediaControllerProtocol {
     var bundleIdentifier: String { get }
-    var isPlaying: Bool { get }
-    var title: String { get }
-    var artist: String { get }
-    var album: String { get }
-    var currentTime: Double { get }
-    var duration: Double { get }
-    var playbackRate: Double { get }
-    var isShuffled: Bool { get }
-    var isRepeating: Bool { get }
-    var lastUpdated: Date { get }
-    var artwork: Data? { get }
+    var isPlaying: Bool { get set }
+    var title: String { get set }
+    var artist: String { get set }
+    var album: String { get set }
+    var currentTime: Double { get set }
+    var duration: Double { get set }
+    var playbackRate: Double { get set }
+    var isShuffled: Bool { get set }
+    var isRepeating: Bool { get set }
+    var lastUpdated: Date { get set }
+    var artwork: Data? { get set }
     
     func play()
     func pause()
@@ -31,7 +31,38 @@ public protocol MediaControllerProtocol {
     func togglePlay()
     func isActive() -> Bool
     func updatePlaybackInfo()
+    func reset()
 }
+
+// Extension to provide default values and a method to reset to default values
+public extension MediaControllerProtocol {
+    var isPlaying: Bool { return false }
+    var title: String { return "I'm Handsome" }
+    var artist: String { return "Me" }
+    var album: String { return "Self Love" }
+    var currentTime: Double { return 0 }
+    var duration: Double { return 0 }
+    var playbackRate: Double { return 1 }
+    var isShuffled: Bool { return false }
+    var isRepeating: Bool { return false }
+    var lastUpdated: Date { return Date.distantPast }
+    var artwork: Data? { return nil }
+    
+    mutating func reset() {
+        isPlaying = false
+        title = "I'm Handsome"
+        artist = "Me"
+        album = "Self Love"
+        currentTime = 0
+        duration = 0
+        playbackRate = 1
+        isShuffled = false
+        isRepeating = false
+        lastUpdated = Date.distantPast
+        artwork = nil
+    }
+}
+
 
 // Plugin definition protocol
 public protocol MediaControllerPlugin {
